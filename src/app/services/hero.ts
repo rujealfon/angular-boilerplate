@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Hero } from '../models/hero';
-import { HEROES } from '../mock/hero';
+import { HEROES } from '../_mocks/hero';
 import { MessageService } from './message';
 
 @Injectable({ providedIn: 'root' })
@@ -17,16 +17,9 @@ export class HeroService {
     return of(HEROES);
   }
 
-  getHero(id: number): Observable<Hero> {
+  getHero(id: number): Observable<Hero>  {
     // TODO: send the message _after_ fetching the hero
     this.messageService.add(`HeroService: fetched hero id=${id}`);
     return of(HEROES.find(hero => hero.id === id));
   }
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
